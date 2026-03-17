@@ -309,11 +309,16 @@
         .pillar-link {
             display: inline-flex;
             align-items: center;
-            gap: 5px;
+            justify-content: center;
+            gap: 8px;
             font-weight: 600;
             font-size: 15px;
             margin-top: auto;
             color: var(--primary-blue);
+            padding: 8px 16px;
+            border: 1px solid var(--accent-blue);
+            border-radius: 4px;
+            transition: all 0.3s ease;
         }
         
         .pillar-link svg {
@@ -322,7 +327,12 @@
             transition: transform 0.3s ease;
         }
         
-        .pillar-card:hover .pillar-link svg {
+        .pillar-link:hover {
+            background-color: var(--accent-blue);
+            color: white;
+        }
+
+        .pillar-link:hover svg {
             transform: translateX(5px);
         }
 
@@ -596,35 +606,50 @@
                     <div class="pillar-icon">📈</div>
                     <h3>Capacity Building</h3>
                     <p>Professional development in public health, scientific writing, leadership, and responsible generative AI.</p>
-                    <a href="#pillars" class="pillar-link">Coming Soon...</a>
+                    <a href="#pillars" class="pillar-link">
+                        Learn More
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
                 </div>
 
                 <div class="pillar-card">
                     <div class="pillar-icon">🌍</div>
                     <h3>Community Health</h3>
                     <p>Initiatives focused on health awareness, environmental cleanliness, and WASH (water and sanitation).</p>
-                    <a href="#pillars" class="pillar-link">Coming Soon...</a>
+                    <a href="#pillars" class="pillar-link">
+                        Learn More
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
                 </div>
 
                 <div class="pillar-card">
                     <div class="pillar-icon">🤝</div>
                     <h3>Philanthropy</h3>
                     <p>Organizing donation campaigns and community support for educational and basic needs for vulnerable learners.</p>
-                    <a href="#pillars" class="pillar-link">Coming Soon...</a>
+                    <a href="#pillars" class="pillar-link">
+                        Learn More
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
                 </div>
 
                 <div class="pillar-card">
                     <div class="pillar-icon">📢</div>
                     <h3>Media Engagement</h3>
                     <p>Facilitating public discussions and awareness campaigns on issues affecting well-being.</p>
-                    <a href="#pillars" class="pillar-link">Coming Soon...</a>
+                    <a href="#pillars" class="pillar-link">
+                        Learn More
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
                 </div>
 
                 <div class="pillar-card">
                     <div class="pillar-icon">🔗</div>
                     <h3>Partnerships</h3>
                     <p>Forging joint initiatives with public institutions and international organizations in Ghana and Geneva.</p>
-                    <a href="#pillars" class="pillar-link">Coming Soon...</a>
+                    <a href="#pillars" class="pillar-link">
+                        Learn More
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
                 </div>
             </div>
         </div>
