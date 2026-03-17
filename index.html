@@ -95,6 +95,17 @@
             gap: 10px;
         }
         
+        .logo-img {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-blue);
+            padding: 2px;
+            background-color: var(--bg-light);
+            box-shadow: 0 2px 8px rgba(0, 176, 240, 0.25);
+        }
+
         .logo span {
             color: var(--text-dark);
         }
@@ -521,9 +532,7 @@
     <nav id="navbar">
         <div class="container nav-container">
             <div class="logo">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                </svg>
+                <img src="https://github.com/Equihealthacademy/equihealthacademy/blob/main/youth_impact_academy_icon_preview.png?raw=true" alt="EquiHealth Academy Logo" class="logo-img">
                 EquiHealth <span>Academy</span>
             </div>
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
