@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLMs for Work and Research — EquiHealth Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark:   #1a5c38;
+    --green-main:   #2e7d4f;
+    --green-mid:    #3a9e64;
+    --green-light:  #d6eedf;
+    --green-pale:   #eef7f1;
+    --white:        #ffffff;
+    --ink:          #1a2e24;
+    --muted:        #4a6659;
+    --border:       #b8d9c5;
+    --accent:       #22c55e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    background: var(--green-dark);
+    color: rgba(255,255,255,.75);
+    font-size: .78rem;
+    padding: .45rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+  .topbar a { color: rgba(255,255,255,.85); text-decoration: none; }
+  .topbar a:hover { color: #fff; }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-main) 60%, var(--green-mid) 100%);
+    color: #fff;
+    padding: 3.5rem 2rem 3.2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    right: -100px; top: -100px;
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    left: 30%; bottom: -80px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(34,197,94,.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .leaf-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: .04;
+    background-image: repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%);
+    background-size: 20px 20px;
+    pointer-events: none;
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .org-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 999px;
+    padding: .3rem .85rem .3rem .5rem;
+    font-size: .78rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    color: rgba(255,255,255,.95);
+    margin-bottom: 1.3rem;
+    backdrop-filter: blur(4px);
+  }
+  .org-badge .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .course-tag {
+    display: inline-block;
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.3);
+    color: #fff;
+    font-size: .7rem;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: .28rem .75rem;
+    border-radius: 3px;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-family: 'Merriweather', serif;
+    font-size: clamp(1.7rem, 4.5vw, 2.7rem);
+    line-height: 1.2;
+    margin-bottom: .6rem;
+    color: #fff;
+  }
+  h1 em { color: #a3e9bc; font-style: italic; }
+  .subtitle {
+    font-size: .95rem;
+    font-weight: 300;
+    color: rgba(255,255,255,.7);
+    margin-bottom: 2rem;
+  }
+  .meta-pills { display: flex; flex-wrap: wrap; gap: .6rem; }
+  .pill {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 999px;
+    padding: .35rem .9rem;
+    font-size: .82rem;
+    color: rgba(255,255,255,.9);
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--white);
+    border-bottom: 2px solid var(--green-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(26,92,56,.08);
+  }
+  nav ul {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav ul::-webkit-scrollbar { display: none; }
+  nav a {
+    display: block;
+    padding: .85rem 1.2rem;
+    text-decoration: none;
+    font-size: .83rem;
+    font-weight: 600;
+    color: var(--muted);
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: color .2s, border-color .2s;
+    letter-spacing: .02em;
+  }
+  nav a:hover { color: var(--green-main); border-bottom-color: var(--green-main); }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.8rem 1.5rem 5rem;
+  }
+  section { margin-bottom: 3.8rem; }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--green-main);
+    margin-bottom: .7rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 18px; height: 2px;
+    background: var(--green-mid);
+    border-radius: 2px;
+  }
+  h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 1.6rem;
+    margin-bottom: 1.3rem;
+    color: var(--ink);
+  }
+
+  /* ── LEARNING COMPONENTS ── */
+  .components-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  @media (max-width: 540px) { .components-grid { grid-template-columns: 1fr; } }
+
+  .component-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-top: 4px solid var(--green-main);
+    border-radius: 10px;
+    padding: 1.4rem 1.5rem;
+    transition: box-shadow .2s, transform .2s;
+  }
+  .component-card:hover {
+    box-shadow: 0 6px 24px rgba(46,125,79,.12);
+    transform: translateY(-2px);
+  }
+  .component-number {
+    font-family: 'Merriweather', serif;
+    font-size: 2rem;
+    color: var(--green-light);
+    line-height: 1;
+    margin-bottom: .5rem;
+  }
+  .component-title {
+    font-weight: 700;
+    font-size: .95rem;
+    color: var(--green-dark);
+    margin-bottom: .3rem;
+  }
+  .component-desc { font-size: .87rem; color: var(--muted); }
+
+  /* ── FORMAT BOX ── */
+  .format-box {
+    background: var(--green-pale);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+  }
+  .format-item {
+    display: flex;
+    align-items: flex-start;
+    gap: .75rem;
+    flex: 1;
+    min-width: 220px;
+  }
+  .format-icon {
+    width: 38px; height: 38px;
+    border-radius: 9px;
+    background: var(--green-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #fff;
+  }
+  .format-text strong { display: block; font-size: .9rem; font-weight: 700; color: var(--ink); margin-bottom: .15rem; }
+  .format-text span { font-size: .84rem; color: var(--muted); }
+
+  /* ── MODULE CARDS ── */
+  .modules-list { display: flex; flex-direction: column; gap: .85rem; }
+
+  .module-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow .2s;
+  }
+  .module-card:hover { box-shadow: 0 4px 18px rgba(46,125,79,.1); }
+
+  .module-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.4rem;
+    cursor: pointer;
+    user-select: none;
+    background: var(--white);
+    transition: background .15s;
+  }
+  .module-header:hover { background: var(--green-pale); }
+
+  .module-num {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--green-main);
+    color: #fff;
+    font-size: .78rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .module-card.open .module-num { background: var(--green-dark); }
+
+  .module-title { font-weight: 600; font-size: .95rem; color: var(--ink); flex: 1; }
+
+  .chevron {
+    color: var(--green-main);
+    transition: transform .25s;
+    flex-shrink: 0;
+  }
+  .module-card.open .chevron { transform: rotate(180deg); }
+
+  .module-body {
+    display: none;
+    padding: 0 1.4rem 1.3rem;
+    border-top: 1.5px solid var(--green-light);
+    background: var(--green-pale);
+  }
+  .module-card.open .module-body { display: block; }
+
+  .topics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.1rem;
+  }
+  @media (max-width: 540px) { .topics-grid { grid-template-columns: 1fr; } }
+
+  .topics-col h4 {
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--green-main);
+    margin-bottom: .65rem;
+    padding-bottom: .4rem;
+    border-bottom: 2px solid var(--border);
+  }
+  .topics-col ul { list-style: none; }
+  .topics-col ul li {
+    font-size: .87rem;
+    padding: .32rem 0;
+    border-bottom: 1px dashed var(--border);
+    color: var(--ink);
+    display: flex;
+    align-items: flex-start;
+    gap: .5rem;
+  }
+  .topics-col ul li:last-child { border-bottom: none; }
+  .topics-col ul li::before {
+    content: '→';
+    color: var(--green-mid);
+    font-size: .8rem;
+    margin-top: .05rem;
+    flex-shrink: 0;
+  }
+  .prework-col .topics-col ul li::before { content: '○'; color: var(--green-dark); }
+
+  /* ── GRADING ── */
+  .grade-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .grade-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1.3rem;
+    text-align: center;
+    transition: box-shadow .2s, transform .2s;
+  }
+  .grade-card:hover {
+    box-shadow: 0 6px 20px rgba(46,125,79,.12);
+    transform: translateY(-2px);
+  }
+  .grade-pct {
+    font-family: 'Merriweather', serif;
+    font-size: 2.3rem;
+    color: var(--green-main);
+    line-height: 1;
+    margin-bottom: .35rem;
+  }
+  .grade-name { font-size: .87rem; font-weight: 700; color: var(--ink); margin-bottom: .2rem; }
+  .grade-note { font-size: .78rem; color: var(--muted); }
+
+  .pass-banner {
+    background: linear-gradient(135deg, var(--green-dark), var(--green-main));
+    color: #fff;
+    border-radius: 10px;
+    padding: 1.2rem 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .pass-number {
+    font-family: 'Merriweather', serif;
+    font-size: 2.2rem;
+    color: #a3e9bc;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .pass-text strong { display: block; font-weight: 700; margin-bottom: .2rem; }
+  .pass-text span { font-size: .84rem; opacity: .8; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--green-dark), var(--green-mid), var(--green-light));
+    border: none;
+    margin: 0 0 2.8rem;
+    border-radius: 2px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green-dark);
+    color: rgba(255,255,255,.65);
+    text-align: center;
+    padding: 1.8rem 1rem;
+    font-size: .8rem;
+  }
+  footer a { color: rgba(255,255,255,.8); text-decoration: none; }
+  footer a:hover { color: #fff; }
+  .footer-logo {
+    font-family: 'Merriweather', serif;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: .4rem;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>📍 Ghana · Geneva &nbsp;|&nbsp; <a href="https://equihealthacademy.github.io/equihealthacademy/" target="_blank">equihealthacademy.github.io</a></span>
+  <span>Knowledge for Impact. Compassion for All.</span>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="leaf-pattern"></div>
+  <div class="header-inner">
+    <div class="org-badge"><span class="dot"></span>EquiHealth Academy</div>
+    <div class="course-tag">Course Syllabus</div>
+    <h1>LLMs for Work &amp; Research:<br><em>No-Code AI Tools</em> for Task Automation</h1>
+    <p class="subtitle">A practical, hands-on programme for professionals and researchers</p>
+    <div class="meta-pills">
+      <span class="pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Sundays, 5–7 PM GMT (workshops)
+      </span>
+      <span class="pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Sundays, 4–5 PM GMT (help sessions)
+      </span>
+      <span class="pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        8 Modules
+      </span>
+      <span class="pill">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Passing grade: 80%
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <ul>
+    <li><a href="#learning">Learning Format</a></li>
+    <li><a href="#modules">Course Modules</a></li>
+    <li><a href="#grading">Grading</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <!-- LEARNING FORMAT -->
+  <section id="learning">
+    <p class="section-label">How you'll learn</p>
+    <h2>Learning Components</h2>
+    <div class="components-grid">
+      <div class="component-card">
+        <div class="component-number">01</div>
+        <div class="component-title">Quizzes</div>
+        <div class="component-desc">Theory questions to reinforce your understanding of prework concepts before each workshop.</div>
+      </div>
+      <div class="component-card">
+        <div class="component-number">02</div>
+        <div class="component-title">Workshops</div>
+        <div class="component-desc">Hands-on active exercises applying prework material while collaborating with fellow students and tutors.</div>
+      </div>
+    </div>
+    <div class="format-box">
+      <div class="format-item">
+        <div class="format-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div class="format-text">
+          <strong>Whole-class teaching</strong>
+          <span>Instructors demo new concepts live for the group</span>
+        </div>
+      </div>
+      <div class="format-item">
+        <div class="format-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="format-text">
+          <strong>Learning activities</strong>
+          <span>Build skills through active, applied exercises</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- MODULES -->
+  <section id="modules">
+    <p class="section-label">Curriculum</p>
+    <h2>Course Schedule</h2>
+    <p style="font-size:.88rem;color:var(--muted);margin-bottom:1.4rem;">Click any module to expand its prework and workshop topics.</p>
+
+    <div class="modules-list">
+
+      <div class="module-card">
+        <div class="module-header" onclick="toggle(this)">
+          <div class="module-num">1</div>
+          <div class="module-title">Websites &amp; Presentations</div>
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="module-body">
+          <div class="topics-grid">
+            <div class="topics-col prework-col">
+              <h4>Prework</h4>
+              <ul>
+                <li>How LLMs are trained</li>
+                <li>How to use ChatGPT</li>
+                <li>LLM prompting strategies</li>
+              </ul>
+            </div>
+            <div class="topics-col">
+              <h4>Workshop</h4>
+              <ul>
+                <li>Websites with LLMs and GitHub Pages</li>
+                <li>Websites vs web applications</li>
+                <li>Intro to AI presentation tools</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header" onclick="toggle(this)">
+          <div class="module-num">2</div>
+          <div class="module-title">Automated Data Analysis</div>
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="module-body">
+          <div class="topics-grid">
+            <div class="topics-col prework-col">
+              <h4>Prework</h4>
+              <ul>
+                <li>LLM data privacy</li>
+                <li>Setting up R and Cursor</li>
+              </ul>
+            </div>
+            <div class="topics-col">
+              <h4>Workshop</h4>
+              <ul>
+                <li>Julius and Cursor for no-code data analyses</li>
+                <li>Bricks AI for dashboards</li>
+                <li>Shortcut AI for spreadsheets</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header" onclick="toggle(this)">
+          <div class="module-num">3</div>
+          <div class="module-title">Text Processing &amp; Research</div>
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="module-body">
+          <div class="topics-grid">
+            <div class="topics-col prework-col">
+              <h4>Prework</h4>
+              <ul>
+                <li>Setting up to use LLMs in spreadsheets</li>
+              </ul>
+            </div>
+            <div class="topics-col">
+              <h4>Workshop</h4>
+              <ul>
+                <li>Text classification, sentiment analysis &amp; summarization</li>
+                <li>AI tools for literature search, text analysis &amp; knowledge synthesis</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header" onclick="toggle(this)">
+          <div class="module-num">4</div>
+          <div class="module-title">Custom GPTs and Chatbots</div>
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="module-body">
+          <div class="topics-grid">
+            <div class="topics-col prework-col">
+              <h4>Prework</h4>
+              <ul>
+                <li>LLM model terminology</li>
+                <li>Picking the right model for your task</li>
+              </ul>
+            </div>
+            <div class="topics-col">
+              <h4>Workshop</h4>
+              <ul>
+                <li>Creating interactive chatbots with Botpress</li>
+                <li>Building custom GPTs for specific use cases</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header" onclick="toggle(this)">
+          <div class="module-num">5</div>
+          <div class="module-title">AI for Workflow Automation</div>
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="module-body">
+          <div class="topics-grid">
+            <div class="topics-col prework-col">
+              <h4>Prework</h4>
+              <ul>
+                <li>AI agents vs workflows</li>
+              </ul>
+            </div>
+            <div class="topics-col">
+              <h4>Workshop</h4>
+              <ul>
+                <li>Building AI workflow automations</li>
+                <li>Intro to browser control agents</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header" onclick="toggle(this)">
+          <div class="module-num">6</div>
+          <div class="module-title">GenAI for Communication and Outreach</div>
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="module-body">
+          <div class="topics-grid">
+            <div class="topics-col prework-col">
+              <h4>Prework</h4>
+              <ul>
+                <li>How models understand and create images and videos</li>
+              </ul>
+            </div>
+            <div class="topics-col">
+              <h4>Workshop</h4>
+              <ul>
+                <li>Graphics with LLMs</li>
+                <li>Editable diagrams with AI-generated SVG</li>
+                <li>Intro to AI-generated videos</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header" onclick="toggle(this)">
+          <div class="module-num">7</div>
+          <div class="module-title">Final Project Feedback</div>
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="module-body">
+          <div class="topics-grid">
+            <div class="topics-col prework-col">
+              <h4>Prework</h4>
+              <ul>
+                <li>Prep for final projects</li>
+              </ul>
+            </div>
+            <div class="topics-col">
+              <h4>Workshop</h4>
+              <ul>
+                <li>Progress check on projects</li>
+                <li>Peer feedback sessions</li>
+                <li>Troubleshooting technical challenges</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-header" onclick="toggle(this)">
+          <div class="module-num">8</div>
+          <div class="module-title">Final Project Showcase</div>
+          <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="module-body">
+          <div class="topics-grid">
+            <div class="topics-col prework-col">
+              <h4>Prework</h4>
+              <ul>
+                <li>Work on final projects</li>
+              </ul>
+            </div>
+            <div class="topics-col">
+              <h4>Workshop</h4>
+              <ul>
+                <li>Final project presentations</li>
+                <li>Public Q&amp;A session</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- GRADING -->
+  <section id="grading">
+    <p class="section-label">Assessment</p>
+    <h2>Grading Rubric</h2>
+    <div class="grade-grid">
+      <div class="grade-card">
+        <div class="grade-pct">10%</div>
+        <div class="grade-name">Online Quizzes</div>
+        <div class="grade-note">Theory questions</div>
+      </div>
+      <div class="grade-card">
+        <div class="grade-pct">40%</div>
+        <div class="grade-name">Workshop Assignments</div>
+        <div class="grade-note">Graded workshop exercises</div>
+      </div>
+      <div class="grade-card">
+        <div class="grade-pct">10%</div>
+        <div class="grade-name">Attendance &amp; Participation</div>
+        <div class="grade-note">Attend at least 5 workshops to pass</div>
+      </div>
+      <div class="grade-card">
+        <div class="grade-pct">40%</div>
+        <div class="grade-name">Final Project</div>
+        <div class="grade-note">Presented in Module 8</div>
+      </div>
+    </div>
+    <div class="pass-banner">
+      <div class="pass-number">80%</div>
+      <div class="pass-text">
+        <strong>Passing Grade Required</strong>
+        <span>A combined score of 80% or above across all components is required to pass the course.</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">EquiHealth Academy</div>
+  <p style="margin-bottom:.3rem;">LLMs for Work and Research &nbsp;·&nbsp; Course Syllabus &nbsp;·&nbsp; All times in GMT</p>
+  <p>© 2026 EquiHealth Academy &nbsp;·&nbsp; A registered not-for-profit institution &nbsp;·&nbsp;
+    <a href="https://equihealthacademy.github.io/equihealthacademy/" target="_blank">equihealthacademy.github.io</a>
+  </p>
+</footer>
+
+<script>
+  function toggle(header) {
+    header.closest('.module-card').classList.toggle('open');
+  }
+</script>
+</body>
+</html>
