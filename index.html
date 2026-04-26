@@ -8,13 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EquiHealth Academy</title>
     
-    <!-- Google Fonts for a clean, professional look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables for theming - Professional Light Blue Theme */
+        /* CSS Variables */
         :root {
             --primary-blue: #004a99; 
             --accent-blue: #00b0f0;  
@@ -30,11 +29,7 @@
         }
 
         /* Reset & Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -51,27 +46,11 @@
             color: var(--text-dark);
         }
 
-        a {
-            text-decoration: none;
-            color: var(--primary-blue);
-            transition: color 0.3s ease;
-        }
+        a { text-decoration: none; color: var(--primary-blue); transition: color 0.3s ease; }
+        a:hover { color: var(--accent-blue); }
 
-        a:hover {
-            color: var(--accent-blue);
-        }
-
-        /* Layout Utility */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-padding {
-            padding: 80px 0;
-        }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section-padding { padding: 80px 0; }
 
         /* Navigation */
         nav {
@@ -81,575 +60,88 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
         }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-        }
-        
-        .logo-img {
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent-blue);
-            padding: 2px;
-            background-color: var(--bg-light);
-            box-shadow: 0 2px 8px rgba(0, 176, 240, 0.25);
-        }
-
-        .logo span {
-            color: var(--text-dark);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-dark);
-            font-weight: 500;
-            font-size: 15px;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--accent-blue);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--text-dark);
-        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary-blue); display: flex; align-items: center; gap: 10px; cursor: pointer; }
+        .logo-img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent-blue); padding: 2px; background-color: var(--bg-light); box-shadow: 0 2px 8px rgba(0, 176, 240, 0.25); }
+        .logo span { color: var(--text-dark); }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { color: var(--text-dark); font-weight: 500; font-size: 14px; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background-color: var(--accent-blue); transition: width 0.3s ease; }
+        .nav-links a:hover::after { width: 100%; }
 
         /* Hero Section */
-        .hero {
-            margin-top: 80px;
-            position: relative;
-            background: linear-gradient(135deg, rgba(0, 74, 153, 0.9) 0%, rgba(0, 176, 240, 0.8) 100%), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
-            color: white;
-            padding: 120px 0;
-            text-align: center;
-        }
+        .hero { margin-top: 80px; position: relative; background: linear-gradient(135deg, rgba(0, 74, 153, 0.9) 0%, rgba(0, 176, 240, 0.8) 100%), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat; color: white; padding: 120px 0; text-align: center; }
+        .hero h1 { color: white; font-size: 48px; margin-bottom: 20px; font-family: 'Merriweather', serif; }
+        .hero p.slogan { font-size: 24px; font-weight: 300; margin-bottom: 40px; opacity: 0.9; }
+        .hero .motto { font-size: 16px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; font-weight: 600; color: var(--light-blue-bg); }
 
-        .hero h1 {
-            color: white;
-            font-size: 48px;
-            margin-bottom: 20px;
-            font-family: 'Merriweather', serif;
-        }
+        /* Founders Section Styling */
+        .founders-section { background-color: var(--bg-light); text-align: center; }
+        .founder-card { max-width: 400px; margin: 0 auto; padding: 30px; border-radius: 15px; background: white; box-shadow: var(--shadow-md); transition: transform 0.3s ease; }
+        .founder-card:hover { transform: translateY(-5px); }
+        .founder-avatar { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 4px solid var(--accent-blue); margin-bottom: 20px; box-shadow: var(--shadow-sm); }
+        .founder-name { font-size: 22px; color: var(--primary-blue); margin-bottom: 5px; }
+        .founder-title { font-size: 14px; color: var(--text-muted); font-weight: 500; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .social-icons { display: flex; justify-content: center; gap: 20px; }
+        .social-icon { width: 40px; height: 40px; border-radius: 50%; background: var(--light-blue-bg); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; color: var(--primary-blue); }
+        .social-icon:hover { background: var(--accent-blue); color: white; transform: scale(1.1); }
+        .social-icon svg { width: 20px; height: 20px; fill: currentColor; }
 
-        .hero p.slogan {
-            font-size: 24px;
-            font-weight: 300;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        .hero .motto {
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-            font-weight: 600;
-            color: var(--light-blue-bg);
-        }
-
-        /* Course Detail Page Styling */
-        #course-page {
-            display: none;
-            padding-top: 120px;
-            background-color: var(--bg-light);
-            min-height: 80vh;
-        }
-
-        .course-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .course-header h2 {
-            font-size: 36px;
-            color: var(--primary-blue);
-            margin-bottom: 10px;
-        }
-
-        .course-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .course-card {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .course-card h3 {
-            margin-bottom: 20px;
-            color: var(--primary-blue);
-        }
-
-        .btn-action {
-            display: inline-block;
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-top: 20px;
-            transition: background 0.3s ease;
-        }
-
-        .btn-action:hover {
-            background-color: var(--accent-blue);
-            color: white;
-        }
-
-        .back-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 30px;
-            font-weight: 600;
-            cursor: pointer;
-            color: var(--text-muted);
-        }
-
-        /* Sections Visibility Management */
-        .home-content {
-            display: block;
-        }
-
-        /* About Section */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: var(--primary-blue);
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 17px;
-            color: var(--text-muted);
-        }
-
-        .vision-mission-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .card {
-            background: var(--bg-light);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: var(--shadow-md);
-            border-top: 4px solid var(--accent-blue);
-        }
-
-        .card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary-blue);
-        }
-
-        /* Programme Pillars Section */
-        .pillars-section {
-            background-color: var(--bg-gray);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .section-header h2 {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
+        /* General Section visibility */
+        #course-page { display: none; padding-top: 120px; background-color: var(--bg-light); min-height: 80vh; }
+        .home-content { display: block; }
         
-        .section-header p {
-            color: var(--text-muted);
-            font-size: 18px;
-        }
+        /* Utility styles from existing file */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .card { background: var(--bg-light); padding: 40px; border-radius: 8px; box-shadow: var(--shadow-md); border-top: 4px solid var(--accent-blue); margin-bottom: 20px;}
+        .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .pillar-card { background: var(--bg-light); padding: 40px 30px; border-radius: 8px; text-align: center; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; height: 100%; transition: all 0.3s ease; }
+        .pillar-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+        .section-header { text-align: center; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .value-item { background: white; padding: 25px; border-radius: 6px; box-shadow: var(--shadow-sm); border-left: 3px solid var(--accent-blue); }
+        .activities-placeholder { border: 2px dashed var(--accent-blue); padding: 60px; border-radius: 12px; background-color: var(--bg-gray); margin-top: 40px; text-align: center; }
+        .tally-form-wrapper { background-color: var(--bg-light); border-radius: 12px; box-shadow: var(--shadow-md); border: 1px solid var(--border-color); padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+        .partners-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 40px; }
+        .partner-tag { background-color: var(--bg-gray); border: 1px solid var(--border-color); padding: 10px 20px; border-radius: 50px; font-size: 14px; transition: all 0.2s ease; }
+        .partner-tag:hover { background-color: var(--accent-blue); color: white; }
 
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+        footer { background-color: #1a202c; color: #a0aec0; padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-bottom { border-top: 1px solid #2d3748; padding-top: 30px; text-align: center; font-size: 13px; }
 
-        .pillar-card {
-            background: var(--bg-light);
-            border-radius: 8px;
-            padding: 40px 30px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .pillar-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--accent-blue);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-            transform-origin: left;
-        }
-
-        .pillar-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .pillar-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .pillar-icon {
-            font-size: 40px;
-            color: var(--primary-blue);
-            margin-bottom: 20px;
-        }
-
-        .pillar-card h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-
-        .pillar-card p {
-            color: var(--text-muted);
-            font-size: 15px;
-            margin-bottom: 25px;
-            flex-grow: 1;
-        }
-
-        .pillar-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-weight: 600;
-            font-size: 15px;
-            margin-top: auto;
-            color: var(--primary-blue);
-            padding: 8px 16px;
-            border: 1px solid var(--accent-blue);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .pillar-link svg {
-            width: 16px;
-            height: 16px;
-            transition: transform 0.3s ease;
-        }
-        
-        .pillar-link:hover {
-            background-color: var(--accent-blue);
-            color: white;
-        }
-
-        .pillar-link:hover svg {
-            transform: translateX(5px);
-        }
-
-        /* Core Values Section */
-        .values-section {
-            background: var(--light-blue-bg);
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .value-item {
-            background: white;
-            padding: 25px;
-            border-radius: 6px;
-            box-shadow: var(--shadow-sm);
-            border-left: 3px solid var(--accent-blue);
-        }
-
-        .value-item h4 {
-            font-size: 18px;
-            margin-bottom: 8px;
-            color: var(--primary-blue);
-        }
-        
-        .value-item p {
-            font-size: 14px;
-            color: var(--text-muted);
-        }
-
-        /* Upcoming Activities Placeholder */
-        .activities-section {
-            background-color: var(--bg-light);
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .activities-placeholder {
-            border: 2px dashed var(--accent-blue);
-            padding: 60px;
-            border-radius: 12px;
-            background-color: var(--bg-gray);
-            margin-top: 40px;
-        }
-
-        .activities-placeholder h3 {
-            color: var(--primary-blue);
-            margin-bottom: 10px;
-        }
-
-        /* Consultation & Membership Form Section */
-        .consultation-section {
-            background-color: var(--bg-gray);
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .tally-form-wrapper {
-            background-color: var(--bg-light);
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--border-color);
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* Partners Section */
-        .partners-section {
-            text-align: center;
-            background-color: var(--bg-light);
-        }
-        
-        .partners-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 40px;
-        }
-        
-        .partner-tag {
-            background-color: var(--bg-gray);
-            border: 1px solid var(--border-color);
-            padding: 10px 20px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-dark);
-            transition: all 0.2s ease;
-        }
-        
-        .partner-tag:hover {
-            background-color: var(--accent-blue);
-            color: white;
-            border-color: var(--accent-blue);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #1a202c;
-            color: #a0aec0;
-            padding: 60px 0 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-brand h2 {
-            color: white;
-            font-size: 24px;
-            margin-bottom: 15px;
-        }
-        
-        .footer-brand p {
-            font-size: 14px;
-            max-width: 400px;
-        }
-
-        .footer-links h4 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #a0aec0;
-            font-size: 14px;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-blue);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #2d3748;
-            padding-top: 30px;
-            text-align: center;
-            font-size: 13px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .course-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
+        /* Mobile Adjustments */
         @media (max-width: 768px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 20px 0;
-                box-shadow: var(--shadow-md);
-                text-align: center;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .tally-form-wrapper {
-                padding: 20px 10px;
-            }
+            .about-grid, .footer-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; background: none; border: none; font-size: 24px; cursor: pointer; }
+            .hero h1 { font-size: 32px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav id="navbar">
         <div class="container nav-container">
             <div class="logo" onclick="showHome()">
-                <img src="https://github.com/Equihealthacademy/equihealthacademy/blob/main/youth_impact_academy_icon_preview.png?raw=true" alt="EquiHealth Academy Logo" class="logo-img">
+                <img src="https://github.com/Equihealthacademy/equihealthacademy/blob/main/youth_impact_academy_icon_preview.png?raw=true" alt="Logo" class="logo-img">
                 EquiHealth <span>Academy</span>
             </div>
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#hero" onclick="showHome()">Home</a></li>
-                <li><a href="#about" onclick="showHome()">About Us</a></li>
-                <li><a href="#pillars" onclick="showHome()">Programme Pillars</a></li>
-                <li><a href="#values" onclick="showHome()">Core Values</a></li>
+                <li><a href="#about" onclick="showHome()">About</a></li>
+                <li><a href="#pillars" onclick="showHome()">Pillars</a></li>
+                <li><a href="#founders" onclick="showHome()">Founders</a></li>
                 <li><a href="#activities" onclick="showHome()">Activities</a></li>
-                <li><a href="#consultation" onclick="showHome()">Join / Consult</a></li>
+                <li><a href="#consultation" onclick="showHome()">Join</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- MAIN HOME CONTENT -->
     <div id="home-view" class="home-content">
-        <!-- Hero Section -->
         <header class="hero" id="hero">
             <div class="container">
                 <p class="motto">Knowledge for Impact. Compassion for All.</p>
@@ -658,179 +150,102 @@
             </div>
         </header>
 
-        <!-- About Section -->
         <section class="section-padding" id="about">
             <div class="container about-grid">
                 <div class="about-text">
                     <h2>Who We Are</h2>
                     <p>EquiHealth Academy is a neutral, non-profit institution established for public benefit. We serve as a vital bridge between training and service.</p>
-                    <p>Rooted in the belief that health is broader than disease treatment alone—encompassing education, social support, environmental conditions, water and sanitation, and dignity—we focus on equipping young people and early-career professionals.</p>
-                    <p>Our activities include seminars, workshops, mentorship programmes, community outreach, philanthropy, responsible AI education, and partnership development.</p>
+                    <p>Rooted in the belief that health is broader than disease treatment alone, we focus on equipping young professionals with the tools to tackle societal challenges.</p>
                 </div>
-                
                 <div class="vision-mission-cards">
                     <div class="card">
-                        <h3>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
-                            Our Vision
-                        </h3>
-                        <p>A generation of skilled, socially responsible young leaders using knowledge, technology, and compassion to improve health, education, and quality of life and tackle societal challenges.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-                            Our Mission
-                        </h3>
-                        <p>To equip young people and early-career professionals with practical skills, ethical leadership, and community service experience that improve public health and social well-being.</p>
+                        <h3>Our Vision</h3>
+                        <p>A generation of skilled, socially responsible leaders using technology and compassion to improve global well-being.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Programme Pillars Section -->
-        <section class="section-padding pillars-section" id="pillars">
+        <section class="section-padding" id="pillars" style="background: var(--bg-gray);">
             <div class="container">
                 <div class="section-header">
                     <h2>Programme Pillars</h2>
-                    <p>Bridging skills in public health, research, and leadership with philanthropic action for communities in need.</p>
+                    <p>Bridging skills in public health, research, and leadership.</p>
                 </div>
-              
                 <div class="pillars-grid">
                     <div class="pillar-card">
-                        <div class="pillar-icon">📈</div>
+                        <div style="font-size: 40px; margin-bottom: 20px;">📈</div>
                         <h3>Capacity Building</h3>
-                        <p>Professional development in public health, scientific writing, leadership, and responsible generative AI.</p>
-                        <a onclick="showCourses()" class="pillar-link">
-                            Learn More (Courses)
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </a>
+                        <p>Professional development in public health and AI workflows.</p>
+                        <a onclick="showCourses()" style="cursor:pointer; font-weight:bold; color:var(--primary-blue);">Learn More →</a>
                     </div>
-                
                     <div class="pillar-card">
-                        <div class="pillar-icon">🌍</div>
+                        <div style="font-size: 40px; margin-bottom: 20px;">🌍</div>
                         <h3>Community Health</h3>
-                        <p>Initiatives focused on health awareness, environmental cleanliness, and WASH (water and sanitation).</p>
-                        <a href="#pillars" class="pillar-link">
-                            Learn More
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </a>
+                        <p>Focusing on health awareness and environmental cleanliness.</p>
                     </div>
-                
                     <div class="pillar-card">
-                        <div class="pillar-icon">🤝</div>
+                        <div style="font-size: 40px; margin-bottom: 20px;">🤝</div>
                         <h3>Philanthropy</h3>
-                        <p>Organizing donation campaigns and community support for educational and basic needs for vulnerable learners.</p>
-                        <a href="#pillars" class="pillar-link">
-                            Learn More
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </a>
-                    </div>
-                
-                    <div class="pillar-card">
-                        <div class="pillar-icon">📢</div>
-                        <h3>Media Engagement</h3>
-                        <p>Facilitating public discussions and awareness campaigns on issues affecting well-being.</p>
-                        <a href="#pillars" class="pillar-link">
-                            Learn More
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </a>
-                    </div>
-                
-                    <div class="pillar-card">
-                        <div class="pillar-icon">🔗</div>
-                        <h3>Partnerships</h3>
-                        <p>Forging joint initiatives with public institutions and international organizations.</p>
-                        <a href="#pillars" class="pillar-link">
-                            Learn More
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-                        </a>
+                        <p>Supporting educational and basic needs for vulnerable learners.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Core Values Section -->
-        <section class="section-padding values-section" id="values">
+        <section class="section-padding founders-section" id="founders">
             <div class="container">
                 <div class="section-header">
-                    <h2>Our Core Values</h2>
-                    <p>The guiding principles defining our culture and approach to community impact.</p>
+                    <h2>Meet the Founders</h2>
+                    <p>Leading the way in global health innovation and youth empowerment.</p>
                 </div>
                 
-                <div class="values-grid">
-                    <div class="value-item">
-                        <h4>Service</h4>
-                        <p>We act to improve lives and reduce inequity.</p>
-                    </div>
+                <div class="founder-card">
+                    <img src="https://github.com/Equihealthacademy/equihealthacademy/blob/main/Passport.JPG?raw=true" alt="Simon Boakye" class="founder-avatar">
+                    <h3 class="founder-name">Simon Boakye, MSGH, BSc</h3>
+                    <p class="founder-title">Founder & Lead Consultant</p>
                     
-                    <div class="value-item">
-                        <h4>Integrity</h4>
-                        <p>We are transparent, accountable, and ethical.</p>
-                    </div>
-                    
-                    <div class="value-item">
-                        <h4>Neutrality</h4>
-                        <p>We remain non-partisan and independent.</p>
-                    </div>
-                    
-                    <div class="value-item">
-                        <h4>Inclusion</h4>
-                        <p>We prioritize diverse and underserved communities.</p>
-                    </div>
-                    
-                    <div class="value-item">
-                        <h4>Innovation</h4>
-                        <p>We responsibly use modern tools to expand opportunity.</p>
-                    </div>
-                    
-                    <div class="value-item">
-                        <h4>Compassion</h4>
-                        <p>We place human dignity at the center of our work.</p>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/simonboakye-a8283416b" target="_blank" class="social-icon" title="LinkedIn Profile">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=boakyesimon04@gmail.com" target="_blank" class="social-icon" title="Send Email via Gmail">
+                            <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.634-1.634 1.634h-3.818V8.21L12 14.38 3.452 8.21v12.79H1.634A1.634 1.634 0 0 1 0 19.366V5.457c0-1.356 1.478-2.194 2.632-1.483L12 10.79l9.368-6.816c1.154-.711 2.632.127 2.632 1.483z"/></svg>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Upcoming Activities Section -->
-        <section class="section-padding activities-section" id="activities">
+        <section class="section-padding" id="activities" style="background: var(--bg-gray);">
             <div class="container">
                 <div class="section-header">
                     <h2>Upcoming Activity(s)</h2>
-                    <p>Stay tuned for our upcoming seminars, workshops, and community outreach missions.</p>
                 </div>
-                
                 <div class="activities-placeholder">
-                    <h3 style="cursor: pointer; color: var(--accent-blue);" onclick="showCourses()">LLM for Work and Research</h3>
-                    <p>Click the title above to view detailed course information, syllabus, and registration details.</p>
+                    <h3 onclick="showCourses()" style="cursor:pointer; color:var(--accent-blue);">LLM for Work and Research</h3>
+                    <p>Click to view course details and registration.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Consultation and Membership Form Section -->
-        <section class="section-padding consultation-section" id="consultation">
+        <section class="section-padding" id="consultation">
             <div class="container">
-                <div class="section-header" style="max-width: 900px;">
-                    <h2>Consultation and Membership Form</h2>
-                    <p>Do you need a consultant for your global health, public health or Research programmes/projects? Do you want to join the academy to contribute to the mission? Are you looking for collaboration to advance global health and public health? Interested in working together or learning more about LLMs and AI workflows?<br><br>Please feel free to reach out using the form below.</p>
+                <div class="section-header">
+                    <h2>Consultation and Membership</h2>
                 </div>
-                
                 <div class="tally-form-wrapper">
-                    <!-- Tally Form Embed -->
-                    <iframe data-tally-src="https://tally.so/embed/QK0PK7?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="300" frameborder="0" marginheight="0" marginwidth="0" title="Consultation and Membership Form"></iframe>
+                    <iframe data-tally-src="https://tally.so/embed/QK0PK7?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="350" frameborder="0" title="Form"></iframe>
                     <script async src="https://tally.so/widgets/embed.js"></script>
                 </div>
             </div>
         </section>
 
-        <!-- Partners Section -->
-        <section class="section-padding partners-section" id="partners">
+        <section class="section-padding" id="partners" style="background: var(--bg-gray);">
             <div class="container">
                 <div class="section-header">
                     <h2>Strategic Collaboration</h2>
-                    <p>Working with global and local leaders to expand impact across borders.</p>
                 </div>
-                
                 <div class="partners-list">
                     <span class="partner-tag">Geneva Health Forum</span>
                     <span class="partner-tag">UNITAR</span>
@@ -840,106 +255,58 @@
         </section>
     </div>
 
-    <!-- CAPACITY BUILDING - COURSES PAGE -->
     <div id="course-page">
         <div class="container">
-            <div class="back-btn" onclick="showHome()">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                Back to Home
-            </div>
-            
-            <div class="course-header">
-                <h2>Capacity Building: Courses</h2>
-                <p>Equipping professionals with the tools for tomorrow.</p>
-            </div>
-
-            <div class="course-grid">
-                <!-- Syllabus Card -->
-                <div class="course-card">
-                    <div class="pillar-icon">📋</div>
+            <div onclick="showHome()" style="cursor:pointer; margin-bottom:20px; font-weight:bold;">← Back to Home</div>
+            <h2>Capacity Building: Courses</h2>
+            <div class="pillars-grid" style="margin-top:40px;">
+                <div class="pillar-card">
                     <h3>Course Syllabus</h3>
-                    <p>Review the comprehensive breakdown of our upcoming course, including modules, learning objectives, and schedule.</p>
-                    <a href="https://equihealthacademy.github.io/equihealthacademy/syllabus.html" target="_blank" class="btn-action">View Syllabus</a>
+                    <a href="https://equihealthacademy.github.io/equihealthacademy/syllabus.html" class="partner-tag" style="display:inline-block; margin-top:10px;">View Syllabus</a>
                 </div>
-
-                <!-- Flyer Card -->
-                <div class="course-card">
-                    <div class="pillar-icon">🚀</div>
-                    <h3>Course Flyer: LLMs for Work and Research</h3>
-                    <p>Get a quick overview of the course highlights, key takeaways, and registration requirements.</p>
-                    <a href="https://equihealthacademy.github.io/equihealthacademy/Final%20flyer_LLM%20course.html" target="_blank" class="btn-action">Click to register</a>
+                <div class="pillar-card">
+                    <h3>LLM Course Flyer</h3>
+                    <a href="https://equihealthacademy.github.io/equihealthacademy/Final%20flyer_LLM%20course.html" class="partner-tag" style="display:inline-block; margin-top:10px;">Register Now</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-brand">
-                    <h2>EquiHealth Academy</h2>
-                    <p>A neutral, nonprofit institution combining youth capacity building, philanthropy, and community outreach.</p>
+                <div>
+                    <h3>EquiHealth Academy</h3>
+                    <p>A neutral, nonprofit institution combining youth capacity building and community outreach.</p>
                 </div>
-                
-                <div class="footer-links">
-                    <h4>Navigation</h4>
-                    <ul>
-                        <li><a href="#about" onclick="showHome()">About Us</a></li>
-                        <li><a href="#pillars" onclick="showHome()">Programme Pillars</a></li>
-                        <li><a href="#activities" onclick="showHome()">Upcoming Activities</a></li>
-                        <li><a href="#consultation" onclick="showHome()">Join / Consult</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Governance</h4>
-                    <ul>
-                        <li><a href="#">Constitution</a></li>
-                        <li><a href="#">Financial Accountability</a></li>
-                        <li><a href="#">General Assembly</a></li>
+                <div>
+                    <h4>Links</h4>
+                    <ul style="list-style:none; font-size:14px;">
+                        <li><a href="#about" style="color:#a0aec0">About</a></li>
+                        <li><a href="#founders" style="color:#a0aec0">Founders</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 EquiHealth Academy. A registered not-for-profit institution. All rights reserved.</p>
+                &copy; 2026 EquiHealth Academy. All rights reserved.
             </div>
         </div>
     </footer>
 
     <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
         function showCourses() {
             document.getElementById('home-view').style.display = 'none';
             document.getElementById('course-page').style.display = 'block';
             window.scrollTo(0,0);
-            document.getElementById('navLinks').classList.remove('active');
         }
-
         function showHome() {
             document.getElementById('home-view').style.display = 'block';
             document.getElementById('course-page').style.display = 'none';
-            document.getElementById('navLinks').classList.remove('active');
         }
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 10) {
-                nav.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.boxShadow = '0 2px 4px rgba(0,0,0,0.05)';
-            }
-        });
+        function toggleMenu() {
+            const links = document.getElementById('navLinks');
+            links.style.display = (links.style.display === 'flex') ? 'none' : 'flex';
+        }
     </script>
 </body>
 </html>
