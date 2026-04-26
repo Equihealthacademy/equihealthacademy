@@ -3,15 +3,82 @@
 <head>
     <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
     <script src="https://files.bpcontent.cloud/2026/03/22/21/20260322212956-CJVPKPUU.js" defer></script>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EquiHealth Academy</title>
-    
+
+    <!-- ============================================================
+         PRIMARY SEO META TAGS
+    ============================================================ -->
+    <title>EquiHealth Academy | Global Health Training, Capacity Building &amp; Community Impact</title>
+    <meta name="description" content="EquiHealth Academy is a nonprofit institution equipping young professionals with public health skills, ethical leadership, and responsible AI education. Based in Geneva. Open globally.">
+    <meta name="keywords" content="EquiHealth Academy, global health, public health training, capacity building, nonprofit, LLM course, AI for health, Geneva, community health, philanthropy, Simon Boakye">
+    <meta name="author" content="EquiHealth Academy">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.equihealthacademy.org/">
+
+    <!-- ============================================================
+         OPEN GRAPH — controls how your link looks on Facebook,
+         LinkedIn and WhatsApp when shared
+    ============================================================ -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.equihealthacademy.org/">
+    <meta property="og:title" content="EquiHealth Academy | Global Health Training &amp; Community Impact">
+    <meta property="og:description" content="A neutral nonprofit equipping young professionals with public health skills, responsible AI education, and community service experience. Join us.">
+    <meta property="og:image" content="https://github.com/Equihealthacademy/equihealthacademy/blob/main/youth_impact_academy_icon_preview.png?raw=true">
+    <meta property="og:site_name" content="EquiHealth Academy">
+    <meta property="og:locale" content="en_US">
+
+    <!-- ============================================================
+         TWITTER / X CARD — controls how your link looks on X/Twitter
+    ============================================================ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.equihealthacademy.org/">
+    <meta name="twitter:title" content="EquiHealth Academy | Global Health Training &amp; Community Impact">
+    <meta name="twitter:description" content="A neutral nonprofit equipping young professionals with public health skills, responsible AI education, and community service experience.">
+    <meta name="twitter:image" content="https://github.com/Equihealthacademy/equihealthacademy/blob/main/youth_impact_academy_icon_preview.png?raw=true">
+
+    <!-- ============================================================
+         STRUCTURED DATA (JSON-LD) — tells Google exactly what your
+         organisation is; boosts rich search result appearance
+    ============================================================ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "EquiHealth Academy",
+      "url": "https://www.equihealthacademy.org",
+      "logo": "https://github.com/Equihealthacademy/equihealthacademy/blob/main/youth_impact_academy_icon_preview.png?raw=true",
+      "description": "A neutral nonprofit institution equipping young people and early-career professionals with practical public health skills, ethical leadership, and responsible AI education.",
+      "foundingDate": "2024",
+      "nonprofitStatus": "Nonprofit501c3",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Geneva",
+        "addressCountry": "CH"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "boakyesimon04@gmail.com",
+        "contactType": "General Enquiries"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/simonboakye-a8283416b",
+        "https://github.com/Equihealthacademy/equihealthacademy"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "Simon Boakye",
+        "jobTitle": "Co-Founder and Director",
+        "url": "https://www.linkedin.com/in/simonboakye-a8283416b"
+      }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
             --primary-blue: #004a99;
@@ -90,7 +157,6 @@
         }
 
         .logo span { color: var(--text-dark); }
-
         .nav-links { display: flex; gap: 30px; list-style: none; }
 
         .nav-links a {
@@ -138,10 +204,8 @@
 
         /* Course Page */
         #course-page { display: none; padding-top: 120px; background-color: var(--bg-light); min-height: 80vh; }
-
         .course-header { text-align: center; margin-bottom: 50px; }
         .course-header h2 { font-size: 36px; color: var(--primary-blue); margin-bottom: 10px; }
-
         .course-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
 
         .course-card {
@@ -189,7 +253,6 @@
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
         .about-text h2 { font-size: 36px; margin-bottom: 20px; color: var(--primary-blue); }
         .about-text p { margin-bottom: 20px; font-size: 17px; color: var(--text-muted); }
-
         .vision-mission-cards { display: flex; flex-direction: column; gap: 20px; }
 
         .card {
@@ -204,11 +267,9 @@
 
         /* Pillars */
         .pillars-section { background-color: var(--bg-gray); }
-
         .section-header { text-align: center; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto; }
         .section-header h2 { font-size: 36px; margin-bottom: 15px; }
         .section-header p { color: var(--text-muted); font-size: 18px; }
-
         .pillars-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
         .pillar-card {
@@ -238,7 +299,6 @@
 
         .pillar-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
         .pillar-card:hover::before { transform: scaleX(1); }
-
         .pillar-icon { font-size: 40px; color: var(--primary-blue); margin-bottom: 20px; }
         .pillar-card h3 { font-size: 20px; margin-bottom: 15px; }
         .pillar-card p { color: var(--text-muted); font-size: 15px; margin-bottom: 25px; flex-grow: 1; }
@@ -306,7 +366,6 @@
 
         /* Partners */
         .partners-section { text-align: center; background-color: var(--bg-light); }
-
         .partners-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 40px; }
 
         .partner-tag {
@@ -322,9 +381,7 @@
 
         .partner-tag:hover { background-color: var(--accent-blue); color: white; border-color: var(--accent-blue); }
 
-        /* ============================================================
-           MEET THE FOUNDERS SECTION
-        ============================================================ */
+        /* Founders */
         .founders-section {
             background-color: var(--bg-light);
             border-top: 1px solid var(--border-color);
@@ -373,11 +430,7 @@
             display: block;
         }
 
-        .founder-socials {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
+        .founder-socials { display: flex; gap: 12px; align-items: center; }
 
         .social-icon {
             width: 40px;
@@ -391,10 +444,8 @@
         }
 
         .social-icon:hover { transform: scale(1.12); opacity: 0.9; }
-
         .social-icon.linkedin { background-color: #0077b5; }
         .social-icon.gmail    { background-color: #EA4335; }
-
         .social-icon svg { width: 20px; height: 20px; fill: #ffffff; display: block; }
 
         .founder-right { flex: 1; }
@@ -408,21 +459,8 @@
             margin-bottom: 6px;
         }
 
-        .founder-name {
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin-bottom: 4px;
-            line-height: 1.2;
-        }
-
-        .founder-credentials {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-muted);
-            margin-bottom: 16px;
-            letter-spacing: 0.3px;
-        }
+        .founder-name { font-size: 26px; font-weight: 700; color: var(--primary-blue); margin-bottom: 4px; line-height: 1.2; }
+        .founder-credentials { font-size: 14px; font-weight: 600; color: var(--text-muted); margin-bottom: 16px; }
 
         .founder-divider {
             width: 48px;
@@ -432,26 +470,18 @@
             margin-bottom: 18px;
         }
 
-        .founder-bio {
-            font-size: 15px;
-            color: var(--text-muted);
-            line-height: 1.75;
-        }
+        .founder-bio { font-size: 15px; color: var(--text-muted); line-height: 1.75; }
 
         /* Footer */
         footer { background-color: #1a202c; color: #a0aec0; padding: 60px 0 30px; }
-
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-
         .footer-brand h2 { color: white; font-size: 24px; margin-bottom: 15px; }
         .footer-brand p { font-size: 14px; max-width: 400px; }
-
         .footer-links h4 { color: white; margin-bottom: 20px; font-size: 16px; }
         .footer-links ul { list-style: none; }
         .footer-links li { margin-bottom: 10px; }
         .footer-links a { color: #a0aec0; font-size: 14px; }
         .footer-links a:hover { color: var(--accent-blue); }
-
         .footer-bottom { border-top: 1px solid #2d3748; padding-top: 30px; text-align: center; font-size: 13px; }
 
         /* Responsive */
@@ -467,8 +497,7 @@
             .nav-links {
                 display: none;
                 position: absolute;
-                top: 80px;
-                left: 0;
+                top: 80px; left: 0;
                 width: 100%;
                 background: white;
                 flex-direction: column;
@@ -634,30 +663,12 @@
                 </div>
 
                 <div class="values-grid">
-                    <div class="value-item">
-                        <h4>Service</h4>
-                        <p>We act to improve lives and reduce inequity.</p>
-                    </div>
-                    <div class="value-item">
-                        <h4>Integrity</h4>
-                        <p>We are transparent, accountable, and ethical.</p>
-                    </div>
-                    <div class="value-item">
-                        <h4>Neutrality</h4>
-                        <p>We remain non-partisan and independent.</p>
-                    </div>
-                    <div class="value-item">
-                        <h4>Inclusion</h4>
-                        <p>We prioritize diverse and underserved communities.</p>
-                    </div>
-                    <div class="value-item">
-                        <h4>Innovation</h4>
-                        <p>We responsibly use modern tools to expand opportunity.</p>
-                    </div>
-                    <div class="value-item">
-                        <h4>Compassion</h4>
-                        <p>We place human dignity at the center of our work.</p>
-                    </div>
+                    <div class="value-item"><h4>Service</h4><p>We act to improve lives and reduce inequity.</p></div>
+                    <div class="value-item"><h4>Integrity</h4><p>We are transparent, accountable, and ethical.</p></div>
+                    <div class="value-item"><h4>Neutrality</h4><p>We remain non-partisan and independent.</p></div>
+                    <div class="value-item"><h4>Inclusion</h4><p>We prioritize diverse and underserved communities.</p></div>
+                    <div class="value-item"><h4>Innovation</h4><p>We responsibly use modern tools to expand opportunity.</p></div>
+                    <div class="value-item"><h4>Compassion</h4><p>We place human dignity at the center of our work.</p></div>
                 </div>
             </div>
         </section>
@@ -708,9 +719,7 @@
             </div>
         </section>
 
-        <!-- ============================================================
-             MEET THE FOUNDERS SECTION
-        ============================================================ -->
+        <!-- Meet the Founders Section -->
         <section class="section-padding founders-section" id="founders">
             <div class="container">
                 <div class="section-header">
@@ -719,41 +728,32 @@
                 </div>
 
                 <div class="founders-grid">
-
-                    <!-- Simon Boakye -->
                     <div class="founder-card">
 
-                        <!-- Left: avatar + social icons -->
                         <div class="founder-left">
                             <img
                                 class="founder-avatar"
                                 src="https://github.com/Equihealthacademy/equihealthacademy/blob/main/Passport.JPG?raw=true"
-                                alt="Portrait of Simon Boakye"
+                                alt="Portrait of Simon Boakye, Co-Founder of EquiHealth Academy"
                                 onerror="this.onerror=null;this.src='https://ui-avatars.com/api/?name=Simon+Boakye&size=120&background=004a99&color=ffffff&rounded=true';"
                             >
-
                             <div class="founder-socials">
                                 <!-- LinkedIn -->
-                                <a
-                                    class="social-icon linkedin"
-                                    href="https://www.linkedin.com/in/simonboakye-a8283416b"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Simon Boakye on LinkedIn"
-                                    title="Connect on LinkedIn"
-                                >
+                                <a class="social-icon linkedin"
+                                   href="https://www.linkedin.com/in/simonboakye-a8283416b"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   aria-label="Simon Boakye on LinkedIn"
+                                   title="Connect on LinkedIn">
                                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                                     </svg>
                                 </a>
-
                                 <!-- Gmail -->
-                                <a
-                                    class="social-icon gmail"
-                                    href="mailto:boakyesimon04@gmail.com"
-                                    aria-label="Email Simon Boakye"
-                                    title="Send an Email"
-                                >
+                                <a class="social-icon gmail"
+                                   href="mailto:boakyesimon04@gmail.com"
+                                   aria-label="Email Simon Boakye"
+                                   title="Send an Email">
                                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
                                     </svg>
@@ -761,24 +761,18 @@
                             </div>
                         </div>
 
-                        <!-- Right: bio -->
                         <div class="founder-right">
                             <p class="founder-role">Founder &amp; Director</p>
                             <h3 class="founder-name">Simon Boakye</h3>
                             <p class="founder-credentials">MSGH, BSc</p>
                             <div class="founder-divider"></div>
-                            <p class="founder-bio">
-                                Simon is a public health professional with a Master of Science in Global Health and a background in life sciences. He founded EquiHealth Academy to bridge the gap between academic knowledge and real-world impact, empowering young professionals across Africa and beyond through capacity building, ethical leadership, and community-driven public health solutions. His work spans global health research, responsible AI education, and strategic partnership development with international institutions.
-                            </p>
+                            <p class="founder-bio">Simon Boakye is a public health professional and global health strategist with a Master of Science in Global Health from the University of Geneva — one of the world's leading institutions in international health. With a strong foundation in epidemiology, health systems, and community-driven interventions, Simon founded EquiHealth Academy to transform how the next generation of health leaders are trained and deployed. His work bridges rigorous academic research with measurable real-world impact, spanning responsible AI integration in health systems, work, scientific capacity building, and high-level partnership development with international institutions. Simon is guided by a belief that geography, socioeconomic background, and access to opportunity should never determine the quality of one's contribution to global health and human dignity.</p>
                         </div>
 
                     </div>
-                    <!-- End Simon Boakye -->
-
                 </div>
             </div>
         </section>
-        <!-- END FOUNDERS SECTION -->
 
     </div>
     <!-- END HOME VIEW -->
